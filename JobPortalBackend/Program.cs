@@ -1,4 +1,8 @@
 using JobPortalBackend.Data;
+using JobPortalBackend.Repositories;
+using JobPortalBackend.Repositories.impl;
+using JobPortalBackend.Services;
+using JobPortalBackend.Services.impl;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddControllers();
+builder.Services.AddScoped<IJobService , JobServiceImpl>();
+builder.Services.AddScoped<IJobRepository , JobRepositoryImpl>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,5 +30,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.MapControllers();
 app.UseHttpsRedirection();
 app.Run();

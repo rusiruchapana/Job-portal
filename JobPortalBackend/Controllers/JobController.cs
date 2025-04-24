@@ -1,3 +1,5 @@
+using JobPortalBackend.Dtos.request;
+using JobPortalBackend.Dtos.response;
 using JobPortalBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,5 +13,13 @@ public class JobController: ControllerBase
     public JobController(IJobService jobService)
     {
         _jobService = jobService;
+    }
+
+
+    [HttpPost]
+    public async Task<ActionResult<JobDtoResponse>> CreateJob(JobDtoRequest jobDto)
+    {
+        JobDtoResponse jobDtoResponse = await _jobService.CreateJob(jobDto);
+        return Ok(jobDtoResponse);
     }
 }

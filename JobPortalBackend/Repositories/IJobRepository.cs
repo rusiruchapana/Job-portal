@@ -1,6 +1,8 @@
+using JobPortalBackend.Models;
+
 namespace JobPortalBackend.Repositories;
 
 public interface IJobRepository
 {
-    
+    Task<Job> CreateJob(Job job);
 }

@@ -34,4 +34,10 @@ public class JobServiceImpl: IJobService
         Job job = await _jobRepository.GetJobById(id);
         return _mapper.Map<JobDtoResponse>(job);
     }
+
+    public async Task<bool> DeleteJob(int id)
+    {
+        bool isDeleted = await _jobRepository.DeleteJob(id);
+        return isDeleted;
+    }
 }

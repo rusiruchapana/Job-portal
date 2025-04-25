@@ -28,4 +28,17 @@ public class JobRepositoryImpl: IJobRepository
     {
         return await _context.Jobs.FirstOrDefaultAsync(j => j.Id == id);
     }
+
+    public async Task<bool> DeleteJob(int id)
+    {
+        Job job = await _context.Jobs.FindAsync(id);
+        if (job != null)
+        {
+            _context.Jobs.Remove(job);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+
+    }
 }

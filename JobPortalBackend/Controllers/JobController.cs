@@ -53,7 +53,12 @@ public class JobController: ControllerBase
         return "There is no such job in the database.";
     }
 
-    [HttpPut]
-    
-    
+    [HttpPut("id")]
+    public async Task<ActionResult<JobDtoResponse>> UpdateJob(int id , JobDtoRequest jobDto)
+    {
+        JobDtoResponse jobDtoResponse = await _jobService.UpdateJob(id , jobDto);
+        return Ok(jobDtoResponse);
+    }
+
+
 }

@@ -40,4 +40,19 @@ public class JobServiceImpl: IJobService
         bool isDeleted = await _jobRepository.DeleteJob(id);
         return isDeleted;
     }
+
+    public async Task<JobDtoResponse> UpdateJob(int id, JobDtoRequest jobDto)
+    {
+        Job job = await _jobRepository.GetJobById(id);
+        if(job == null)
+            throw new KeyNotFoundException($"Job with id: {id} was not found");
+        
+        job.Title = jobDto.Title;
+        job.Description = jobDto.Description;
+        job.Company = jobDto.Company;
+        job.Location = jobDto.Location;
+
+        Job afterUpdated = await _jobRepository.UpdateJob(job);
+        return _mapper.Map<JobDtoResponse>(afterUpdated);
+    }
 }

@@ -9,4 +9,5 @@ public interface IJobService
     Task<IEnumerable<JobDtoResponse>> GetJobs();
     Task<JobDtoResponse> GetJobById(int id);
     Task<bool> DeleteJob(int id);
+    Task<JobDtoResponse> UpdateJob(int id, JobDtoRequest jobDto);
 }

@@ -41,4 +41,11 @@ public class JobRepositoryImpl: IJobRepository
         return false;
 
     }
+
+    public async Task<Job> UpdateJob(Job job)
+    {
+        _context.Update(job);
+        await _context.SaveChangesAsync();
+        return job;
+    }
 }

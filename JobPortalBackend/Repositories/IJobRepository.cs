@@ -8,4 +8,5 @@ public interface IJobRepository
     Task<IEnumerable<Job>> GetJobs();
     Task<Job> GetJobById(int id);
     Task<bool> DeleteJob(int id);
+    Task<Job> UpdateJob(Job job);
 }

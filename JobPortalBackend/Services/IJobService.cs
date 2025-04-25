@@ -7,4 +7,5 @@ public interface IJobService
 {
     Task<JobDtoResponse> CreateJob(JobDtoRequest jobDto);
     Task<IEnumerable<JobDtoResponse>> GetJobs();
+    Task<JobDtoResponse> GetJobById(int id);
 }

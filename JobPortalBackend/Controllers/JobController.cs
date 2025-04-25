@@ -2,6 +2,7 @@ using JobPortalBackend.Dtos.request;
 using JobPortalBackend.Dtos.response;
 using JobPortalBackend.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 
 namespace JobPortalBackend.Controllers;
 
@@ -31,6 +32,17 @@ public class JobController: ControllerBase
     }
 
 
+    [HttpGet("id")]
+    public async Task<ActionResult<JobDtoResponse>> GetJobById( int id)
+    {
+        
+        JobDtoResponse jobDtoResponse = await _jobService.GetJobById(id);
+        Console.WriteLine(jobDtoResponse.Id);
+        Console.WriteLine(jobDtoResponse);
+        if (jobDtoResponse == null)
+            return NotFound();
+        return Ok(jobDtoResponse);
+    }
 
 
 }

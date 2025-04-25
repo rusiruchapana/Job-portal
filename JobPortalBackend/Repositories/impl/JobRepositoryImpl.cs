@@ -23,4 +23,9 @@ public class JobRepositoryImpl: IJobRepository
     {
         return await _context.Jobs.ToListAsync();
     }
+
+    public async Task<Job> GetJobById(int id)
+    {
+        return await _context.Jobs.FirstOrDefaultAsync(j => j.Id == id);
+    }
 }

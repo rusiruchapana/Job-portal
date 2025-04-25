@@ -28,4 +28,10 @@ public class JobServiceImpl: IJobService
         IEnumerable<Job> jobs = await _jobRepository.GetJobs();
         return _mapper.Map<IEnumerable<JobDtoResponse>>(jobs);
     }
+
+    public async Task<JobDtoResponse> GetJobById(int id)
+    {
+        Job job = await _jobRepository.GetJobById(id);
+        return _mapper.Map<JobDtoResponse>(job);
+    }
 }

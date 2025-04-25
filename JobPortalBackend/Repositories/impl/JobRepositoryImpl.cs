@@ -1,5 +1,6 @@
 using JobPortalBackend.Data;
 using JobPortalBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobPortalBackend.Repositories.impl;
 
@@ -16,5 +17,10 @@ public class JobRepositoryImpl: IJobRepository
         await _context.Jobs.AddAsync(job);
         await _context.SaveChangesAsync();
         return job;
+    }
+
+    public async Task<IEnumerable<Job>> GetJobs()
+    {
+        return await _context.Jobs.ToListAsync();
     }
 }

@@ -20,7 +20,12 @@ public class JobServiceImpl: IJobService
     {
         Job job = _mapper.Map<Job>(jobDto);
         Job createdJob = await _jobRepository.CreateJob(job);
-        JobDtoResponse jobDtoResponse = _mapper.Map<JobDtoResponse>(createdJob);
-        return jobDtoResponse;
+        return _mapper.Map<JobDtoResponse>(createdJob);
+    }
+
+    public async Task<IEnumerable<JobDtoResponse>> GetJobs()
+    {
+        IEnumerable<Job> jobs = await _jobRepository.GetJobs();
+        return _mapper.Map<IEnumerable<JobDtoResponse>>(jobs);
     }
 }

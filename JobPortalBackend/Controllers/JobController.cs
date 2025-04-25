@@ -22,4 +22,15 @@ public class JobController: ControllerBase
         JobDtoResponse jobDtoResponse = await _jobService.CreateJob(jobDto);
         return Ok(jobDtoResponse);
     }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<JobDtoResponse>>> GetJobs()
+    {
+        IEnumerable<JobDtoResponse> jobDtoResponses = await _jobService.GetJobs();
+        return Ok(jobDtoResponses);
+    }
+
+
+
+
 }

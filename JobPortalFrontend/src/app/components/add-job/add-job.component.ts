@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-add-job',
   imports: [],
   templateUrl: './add-job.component.html',
-  styleUrl: './add-job.component.scss'
+  styleUrl: './add-job.component.css'
 })
 export class AddJobComponent {
 

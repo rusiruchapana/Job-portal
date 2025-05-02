@@ -27,5 +27,9 @@ export class JobService {
     return this.http.get<Job>(`${this.apiUrl}/${id}`);
   }
 
+  updateJob(job: Job): Observable<any>{
+    return this.http.put(`${this.apiUrl}/${job.id}`, job);
+  }
+
 
 }

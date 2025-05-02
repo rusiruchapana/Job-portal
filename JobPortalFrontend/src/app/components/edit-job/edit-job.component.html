@@ -4,31 +4,25 @@
         <h2>Edit Job</h2>
       </div>
       <div class="job-edit-body">
-        <!-- <form class="job-edit-form" (ngSubmit)="updateJob()"> -->
-        <form class="job-edit-form">
+        <form class="job-edit-form" (ngSubmit)="updateJob()">
           <div class="form-group">
             <label for="title">Job Title</label>
-            <!-- <input type="text" id="title" [(ngModel)]="job.title" name="title" required> -->
-            <input type="text"  name="title" required>
+            <input type="text" [(ngModel)]="job.title" id="title" name="title" required>
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <!-- <textarea id="description" [(ngModel)]="job.description" name="description" rows="5" required></textarea> -->
-            <textarea id="description"  name="description" rows="5" required></textarea>
+            <textarea id="description" [(ngModel)]="job.description" name="description" rows="5" required></textarea>
           </div>
           <div class="form-group">
             <label for="company">Company</label>
-            <!-- <input type="text" id="company" [(ngModel)]="job.company" name="company" required> -->
-            <input type="text" id="company" name="company" required>
+            <input type="text" id="company" [(ngModel)]="job.company" name="company" required>
           </div>
           <div class="form-group">
             <label for="location">Location</label>
-            <!-- <input type="text" id="location" [(ngModel)]="job.location" name="location" required> -->
-            <input type="text" id="location"  name="location" required>
+            <input type="text" id="location" [(ngModel)]="job.location"  name="location" required>
           </div>
           <div class="form-actions">
-            <!-- <button type="button" class="cancel-btn" (click)="router.navigate(['/jobs', job.id])">Cancel</button> -->
-            <button type="button" class="cancel-btn">Cancel</button>
+            <button type="button" class="cancel-btn" (click)="router.navigate(['/jobs', job.id])">Cancel</button>
             <button type="submit" class="submit-btn">Update</button>
           </div>
         </form>

@@ -53,7 +53,7 @@ public class JobController: ControllerBase
         return NotFound();
     }
 
-    [HttpPut("id")]
+    [HttpPut("{id}")]
     public async Task<ActionResult<JobDtoResponse>> UpdateJob(int id , JobDtoRequest jobDto)
     {
         JobDtoResponse jobDtoResponse = await _jobService.UpdateJob(id , jobDto);

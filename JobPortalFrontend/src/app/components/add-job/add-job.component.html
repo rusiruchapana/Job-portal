@@ -1,1 +1,63 @@
-<p>add-job works!</p>
+<!-- <div class="container mt-5" *ngIf="job"> -->
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <!-- <h2>{{ job.title }}</h2> -->
+            <h2>Job title</h2>
+            <!-- <div class="badge bg-primary mt-1" *ngIf="job.type">{{ job.type }}</div> -->
+            <div class="badge bg-primary mt-1" >Job type</div>
+          </div>
+          <div class="btn-group">
+            <!-- <a [routerLink]="['/jobs', job.id, 'edit']" class="btn btn-sm btn-outline-secondary me-2"> -->
+            <a  class="btn btn-sm btn-outline-secondary me-2">
+              <i class="bi bi-pencil"></i> Edit
+            </a>
+            <!-- <button (click)="deleteJob()" class="btn btn-sm btn-outline-danger"> -->
+            <button  class="btn btn-sm btn-outline-danger">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- <h5 class="card-subtitle mb-3 text-muted">
+          {{ job.company }} - {{ job.location }}
+        </h5> -->
+        <h5 class="card-subtitle mb-3 text-muted">
+            Company name - Location
+        </h5>
+        <div class="job-meta mb-4">
+          <!-- <span class="me-3"><i class="bi bi-cash"></i> {{ job.salary || 'Salary not specified' }}</span>
+          <span><i class="bi bi-briefcase"></i> {{ job.experience || 'Experience not specified' }}</span> -->
+          <span class="me-3"><i class="bi bi-cash"></i>Job salary</span>
+          <span><i class="bi bi-briefcase"></i>Job experience</span>
+        </div>
+        <h6 class="mb-2">Job Description:</h6>
+        <!-- <p class="card-text">{{ job.description }}</p> -->
+        <p class="card-text">Job description</p>
+        <!-- <div class="skills mt-4" *ngIf="job.skills"> -->
+        <div class="skills mt-4" >  
+            <h6>Required Skills:</h6>
+          <div class="skill-tags">
+            <!-- <span class="badge bg-light text-dark me-2 mb-2" *ngFor="let skill of job.skills.split(',')">
+              {{ skill.trim() }}
+            </span> -->
+            <span class="badge bg-light text-dark me-2 mb-2" >
+                Skill trim
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted d-flex justify-content-between">
+        <!-- <span>Posted: {{ job.postedDate | date:'mediumDate' }}</span>
+        <span *ngIf="job.deadline">Apply before: {{ job.deadline | date:'mediumDate' }}</span> -->
+        <span>Posted: Job posted date</span>
+        <span >Apply before: Job deadline</span>
+      </div>
+    </div>
+    <a routerLink="/jobs" class="btn btn-outline-primary mt-3">
+      <i class="bi bi-arrow-left"></i> Back to List
+    </a>
+  </div>

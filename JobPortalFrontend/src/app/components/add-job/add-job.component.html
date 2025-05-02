@@ -6,31 +6,26 @@
             <h2 class="job-form-title">Add New Job</h2>
           </div>
           <div class="card-body job-form-body">
-            <!-- <form (ngSubmit)="saveJob()" class="job-form"> -->
-            <form  class="job-form">
+            <form  (ngSubmit)="saveJob()"  class="job-form">
               <div class="mb-3 form-group">
                 <label for="title" class="form-label">Job Title</label>
-                <!-- <input type="text" class="form-control form-input" id="title" [(ngModel)]="job.title" name="title" required> -->
-                <input type="text" class="form-control form-input" id="title"  name="title" required>
+                <input type="text" class="form-control form-input" id="title" [(ngModel)]="job.title" name="title" required>
               </div>
               <div class="mb-3 form-group">
                 <label for="description" class="form-label">Description</label>
-                <!-- <textarea class="form-control form-textarea" id="description" [(ngModel)]="job.description" name="description" rows="4" required></textarea> -->
-                <textarea class="form-control form-textarea" id="description" name="description" rows="4" required></textarea>
+                <textarea class="form-control form-textarea" id="description" [(ngModel)]="job.description" name="description" rows="4" required></textarea>
             </div>
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="mb-3 form-group">
                     <label for="company" class="form-label">Company</label>
-                    <!-- <input type="text" class="form-control form-input" id="company" [(ngModel)]="job.company" name="company" required> -->
-                    <input type="text" class="form-control form-input" id="company"  name="company" required>
+                    <input type="text" class="form-control form-input" id="company" [(ngModel)]="job.company" name="company" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3 form-group">
                     <label for="location" class="form-label">Location</label>
-                    <!-- <input type="text" class="form-control form-input" id="location" [(ngModel)]="job.location" name="location" required> -->
-                    <input type="text" class="form-control form-input" id="location"  name="location" required>
+                    <input type="text" class="form-control form-input" id="location" [(ngModel)]="job.location" name="location" required>
                 </div>
                 </div>
               </div>

@@ -20,8 +20,8 @@
           <div class="job-card-footer">
             <div class="posted-date">{{job.postedDate | date:'mediumDate'}}</div>
             <div class="job-actions">
-              <!-- <a [routerLink]="['/jobs', job.id]" class="view-details-btn">View Details</a> -->
-              <a class="view-details-btn">View Details</a>
+              <a [routerLink]="['/jobs', job.id]" class="view-details-btn">View Details</a>
+              <!-- <a class="view-details-btn">View Details</a> -->
               <button *ngIf="job.id !== undefined" (click)="deleteJob(job.id)" class="delete-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>

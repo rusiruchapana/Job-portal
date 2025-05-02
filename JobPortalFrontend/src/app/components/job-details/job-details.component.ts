@@ -1,11 +1,48 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Job } from '../../models/job.model';
+import { Router } from '@angular/router';
+import { JobService } from '../../services/job.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-job-details',
-  imports: [],
+  imports: [RouterModule, CommonModule],
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.css'
 })
 export class JobDetailsComponent {
+
+  job: Job | undefined;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private jobService: JobService
+  ){}
+
+  ngOnInit(): void {
+    this.getJob();
+  }
+
+  getJob(): void{
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.jobService.getJob(id).subscribe({
+      next: (data) => {
+        this.job = data;
+      },
+      error: (e) => console.error(e)
+    });
+
+
+
+  }
+ 
+
+
+
+
+
+
 
 }

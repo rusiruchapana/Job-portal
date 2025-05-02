@@ -32,7 +32,7 @@ public class JobController: ControllerBase
     }
 
 
-    [HttpGet("id")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<JobDtoResponse>> GetJobById( int id)
     {
         

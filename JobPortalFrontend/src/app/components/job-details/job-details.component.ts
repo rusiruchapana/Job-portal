@@ -33,16 +33,21 @@ export class JobDetailsComponent {
       },
       error: (e) => console.error(e)
     });
-
-
-
   }
  
-
-
-
-
-
-
+  deleteJob(): void {
+    if (confirm("Are you sure you want to delete this job?")) {
+      if (this.job && this.job.id !== undefined) {
+        this.jobService.deleteJob(this.job.id).subscribe({
+          next: () => {
+            this.router.navigate(['/jobs']);
+          },
+          error: (e) => console.error(e)
+        });
+      } else {
+        console.error('Job ID is undefined. Cannot delete job.');
+      }
+    }
+  }
 
 }

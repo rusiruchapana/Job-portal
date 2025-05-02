@@ -17,7 +17,7 @@ export class JobListComponent {
 
   ngOnInit(): void{
     this.loadJobs();
-    console.log(this.jobs);
+    
   }
 
 
@@ -30,7 +30,16 @@ export class JobListComponent {
     });
   }
 
-
+  deleteJob(id: number): void {
+    if (confirm('Are you sure you want to delete this job?')) {
+      this.jobService.deleteJob(id).subscribe({
+        next: () => {
+          this.loadJobs();
+        },
+        error: (e) => console.error(e)
+      });
+    }
+  }
 
 
 }

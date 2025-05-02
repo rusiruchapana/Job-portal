@@ -44,13 +44,13 @@ public class JobController: ControllerBase
         return Ok(jobDtoResponse);
     }
 
-    [HttpDelete("id")]
+    [HttpDelete("{id}")]
     public async Task<ActionResult<string>> DeleteJob(int id)
     {
         bool isDeleted = await _jobService.DeleteJob(id);
         if (isDeleted)
-            return "Deleted job successfully.";
-        return "There is no such job in the database.";
+            return NoContent();
+        return NotFound();
     }
 
     [HttpPut("id")]
